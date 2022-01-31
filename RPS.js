@@ -1,14 +1,14 @@
 
-const compMove = computerplay();
-const playerMove = "rock";
-// playerMove = playerMove.toLowerCase();
+const playerMove = (window.prompt("rock, paper or scissors?", "rock")).toLowerCase();
+const compMove = computerPlay();
+
 console.log(playerMove);
 const res = playRound();
 
 console.log(compMove);
 console.log(res);
 
-function computerplay(){
+function computerPlay(){
     genNum = Math.floor(Math.random() * 98);
     let compMove = "";
     if (genNum <= 32){
@@ -25,7 +25,10 @@ function computerplay(){
 
 function playRound(){
     let Result = "";
-    if(playerMove == compMove){
+    if (playerMove != ("rock" || "scissors" || "paper")){
+        Result = "Sorry! You cannot use a " + playerMove + ". Please refresh.";
+    }
+    else if (playerMove == compMove){
         Result = "You Tie... Both players chose "  + compMove;
     }
     else if ((playerMove == "rock" && compMove == "scissors")

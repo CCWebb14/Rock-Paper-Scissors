@@ -64,9 +64,8 @@ function playGame(){
     let initGameCount = 5;
     let gameCount = initGameCount;
     let response = "";
-    let i = 0;
     
-    while(++i){
+    while(true){
         res = playRound();
         if (res == -1){
             gameCount +=1;

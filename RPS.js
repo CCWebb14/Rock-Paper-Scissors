@@ -1,17 +1,9 @@
 
 roundOrGame();
-const playerMove = (window.prompt("rock, paper or scissors?", "rock")).toLowerCase();
-const compMove = computerPlay();
-
-console.log(playerMove);
-const res = playRound();
-
-console.log(compMove);
-console.log(res);
 
 function roundOrGame(){
     const Response = confirm(
-        "Press \"OK\", if you would like to play a 5 round game of RPS.\
+        "Press \"OK\", if you would like to play a five round game of RPS.\
 \nPress \"Cancel\", if you would only like to play a round.");
     if (Response) {
         playGame();
@@ -22,7 +14,7 @@ function roundOrGame(){
 }
 
 function computerPlay(){
-    genNum = Math.floor(Math.random() * 98);
+    let genNum = Math.floor(Math.random() * 98);
     let compMove = "";
     if (genNum <= 32){
         compMove = "rock";
@@ -37,26 +29,60 @@ function computerPlay(){
 }
 
 function playRound(){
-    let Result = "";
-    if (playerMove != ("rock" || "scissors" || "paper")){
-        Result = "Sorry! You cannot use a " + playerMove + ". Please refresh.";
+
+    let playerMove = (window.prompt("rock, paper or scissors?", "rock")).toLowerCase();
+    let compMove = computerPlay();
+    let response = "";
+    let win = 0;
+
+    if ((playerMove != "rock")
+    && (playerMove != "scissors")
+    && (playerMove != "paper")){
+        response = `You lost! You cannot use ${playerMove}`;
     }
     else if (playerMove == compMove){
-        Result = "You Tie... Both players chose "  + compMove;
+        response = `You tie... Both players chose ${compMove}. Rematch!`;
+        win = -1;
     }
     else if ((playerMove == "rock" && compMove == "scissors")
      || (playerMove == "scissors" && compMove == "paper")
      || (playerMove == "paper" && compMove == "rock")){
-        Result = "You Win! " + playerMove + " beats " + compMove;
+        response = `You win the round! ${playerMove} beats ${compMove}.`;
+        win = 1;
      }
      else {
-        Result = "You Lose! " + compMove + " beats " + playerMove;
+        response = `You lose the round! ${compMove} beats ${playerMove}.`;
      }
-     return Result;
+     console.log(response);
+     return win;
 }
 
 function playGame(){
-    for (let i = 0; i < 5; i++){
-        playRound
+    let wins = 0;
+    let losses = 0;
+    let res = 0;
+    let initGameCount = 5;
+    let gameCount = initGameCount;
+    let response = "";
+    let i = 0;
+    
+    while(++i){
+        res = playRound();
+        if (res == -1){
+            gameCount +=1;
+        }
+        else if(res == 1){ 
+            if(++wins > Math.floor(initGameCount / 2)){
+                response = `You won the game! You won ${wins} of five rounds.`;
+                break;
+            }
+        }
+        else{
+            if(++losses > Math.floor(initGameCount / 2)){
+                response = `You lost the game! You won ${wins} of five rounds.`;
+                break;
+            }
+        }
     }
+    console.log(response);
 }

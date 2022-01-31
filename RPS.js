@@ -72,13 +72,13 @@ function playGame(){
         }
         else if(res == 1){ 
             if(++wins > Math.floor(initGameCount / 2)){
-                response = `You won the game! You won ${wins} of five rounds.`;
+                response = `You won the game! You won ${wins} of ${initGameCount} rounds.`;
                 break;
             }
         }
         else{
             if(++losses > Math.floor(initGameCount / 2)){
-                response = `You lost the game! You lost ${losses} of five rounds.`;
+                response = `You lost the game! You lost ${losses} of ${initGameCount} rounds.`;
                 break;
             }
         }

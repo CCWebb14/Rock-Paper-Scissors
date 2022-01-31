@@ -1,4 +1,5 @@
 
+roundOrGame();
 const playerMove = (window.prompt("rock, paper or scissors?", "rock")).toLowerCase();
 const compMove = computerPlay();
 
@@ -7,6 +8,18 @@ const res = playRound();
 
 console.log(compMove);
 console.log(res);
+
+function roundOrGame(){
+    const Response = confirm(
+        "Press \"OK\", if you would like to play a 5 round game of RPS.\
+\nPress \"Cancel\", if you would only like to play a round.");
+    if (Response) {
+        playGame();
+    }
+    else{
+        playRound();
+    }
+}
 
 function computerPlay(){
     genNum = Math.floor(Math.random() * 98);
@@ -40,4 +53,10 @@ function playRound(){
         Result = "You Lose! " + compMove + " beats " + playerMove;
      }
      return Result;
+}
+
+function playGame(){
+    for (let i = 0; i < 5; i++){
+        playRound
+    }
 }

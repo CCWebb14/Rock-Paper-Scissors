@@ -8,29 +8,40 @@ body,html {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
+
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .wrapper {
     display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    width: 50vw;
     align-items: center;
     justify-content: center;
 
     row-gap: 100px;
+
 }
 
 .buttons {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
-    column-gap: 100px;
+
+
+    flex-basis: 100%;
 }
 
 .button {
     display: flex;
     color: white;
+    font-size: 25px;
     height: 150px;
     width: 150px;
     border: 0.4rem solid black;
@@ -41,9 +52,13 @@ body,html {
 
 .output-field {
     display: flex;
-    color: white;
+    flex: 1 0 0 ;
+    font-size: 25px;
+    background-color: white;
     height: 150px;
-    width: 675px;
     border: 0.4rem solid black;
     border-radius: 2rem;
+
+    justify-content: center;
+    align-items: center;
 }

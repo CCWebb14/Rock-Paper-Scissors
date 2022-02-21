@@ -1,7 +1,12 @@
 
 const buttons = document.querySelectorAll('.button');
+const outputField = document.querySelector('.output-field');
 
-buttons.forEach(button => button.addEventListener('click', roundOrGame));
+// buttons.forEach(button => button.addEventListener('click', roundOrGame, {
+//     once: true
+// }));
+
+buttons.forEach(button => button.addEventListener('click', playRound));
 
 function roundOrGame(){
     const Response = confirm(
@@ -30,9 +35,20 @@ function computerPlay(){
     return compMove;
 }
 
+// function getID(){
+//     console.log(this.id);
+// }
+
+// function getInput(){
+//     outputField.innerText = "Please select an option above";
+//     buttons.forEach(button => button.addEventListener('click', getID));
+// }
+
 function playRound(){
 
-    let playerMove = (window.prompt("rock, paper or scissors?", "rock")).toLowerCase();
+    // let playerMove = (window.prompt("rock, paper or scissors?", "rock")).toLowerCase();
+    console.log(this.id);
+    let playerMove = this.id;
     let compMove = computerPlay();
     let response = "";
     let win = 0;
@@ -55,7 +71,7 @@ function playRound(){
      else {
         response = `You lose the round! ${compMove} beats ${playerMove}.`;
      }
-     console.log(response);
+     outputField.innerText = response;
      return win;
 }
 

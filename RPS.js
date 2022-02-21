@@ -1,5 +1,7 @@
 
-roundOrGame();
+const buttons = document.querySelectorAll('.button');
+
+buttons.forEach(button => button.addEventListener('click', roundOrGame));
 
 function roundOrGame(){
     const Response = confirm(

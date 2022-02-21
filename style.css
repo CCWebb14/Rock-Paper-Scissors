@@ -9,17 +9,23 @@ body,html {
     padding: 0;
     font-family: sans-serif;
 }
-  
-.buttons {
+
+.wrapper {
     display: flex;
-    flex-direction: row;
-    flex: 1;
+    flex-direction: column;
     min-height: 100vh;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
+
+    row-gap: 100px;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
-    margin: 0 20px;
-    row-gap: 10px;
+    column-gap: 100px;
 }
 
 .button {
@@ -31,4 +37,13 @@ body,html {
     border-radius: 2rem;
     justify-content: center;
     align-items: center;
+}
+
+.output-field {
+    display: flex;
+    color: white;
+    height: 150px;
+    width: 675px;
+    border: 0.4rem solid black;
+    border-radius: 2rem;
 }
